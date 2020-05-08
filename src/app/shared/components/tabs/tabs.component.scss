@@ -1,0 +1,51 @@
+@import 'variables';
+
+.app-tabs-list {
+  display: block;
+  margin: 0;
+  padding: 0;
+  background-color: $bg-color1;
+  li {
+    display: inline-block;
+    &.active {
+      button,
+      button:focus,
+      button:hover {
+        background-color: $bg-color0;
+      }
+    }
+
+    &.active,
+    &:hover {
+      button:not([disabled])::after {
+        transform: scale(1);
+      }
+    }
+
+    button {
+      border: none;
+      color: $font-normal-color;
+      background: transparent;
+      outline: none;
+      box-shadow: none;
+      box-sizing: border-box;
+      display: inline-block;
+      margin: 0;
+      padding: 0.35em 0.75em;
+      position: relative;
+      text-align: center;
+      user-select: none;
+      font: inherit;
+      font-size: 1em;
+      &:not([disabled]) {
+        &:hover {
+          background-color: $bg-color0;
+        }
+      }
+    }
+  }
+
+  .app-tab-content {
+    padding: 10px;
+  }
+}

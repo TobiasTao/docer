@@ -1,0 +1,44 @@
+{
+  "appId": "angular-electron-boilerplate",
+  "productName": "angular-electron-boilerplate",
+  "directories": {
+    "output": "release/"
+  },
+  "files": [
+    "**/*",
+    "!**/*.ts",
+    "!*.code-workspace",
+    "!LICENSE.md",
+    "!package.json",
+    "!package-lock.json",
+    "!src/",
+    "src/electron",
+    "!e2e/",
+    "!hooks/",
+    "!angular.json",
+    "!karma.conf.js",
+    "!tsconfig.json",
+    "!tslint.json"
+  ],
+  "win": {
+    "icon": "dist\\assets\\images\\favicon.256x256.png",
+    "target": ["nsis"]
+  },
+  "nsis": {
+    "artifactName": "${productName}-${version}-setup.${ext}"
+  },
+  "mac": {
+    "icon": "dist\\assets\\images\\favicon.256x256.png",
+    "artifactName": "${productName}-${version}-macos.${ext}",
+    "target": [
+      "pkg"
+    ]
+  },
+  "linux": {
+    "icon": "dist\\assets\\images\\favicon.256x256.png",
+    "artifactName": "${productName}-${version}-linux.${ext}",
+    "target": [
+      "deb"
+    ]
+  }
+}

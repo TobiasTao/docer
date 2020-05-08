@@ -1,0 +1,50 @@
+@import 'variables';
+
+.title-bar {
+  height: 26px;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  background-color: $bg-color0;
+  .window-appicon {
+    height: 24px;
+    width: 24px;
+  }
+  .window-menu {
+    height: 26px;
+    width: 400px;
+  }
+  .window-title {
+    text-align: center;
+    line-height: 26px;
+    height: 26px;
+    width: calc(100vw - 350px);
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+  }
+  .window-controls {
+    width: 120px;
+    height: 26px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    .window-controls-item {
+      width: 40px;
+      height: 26px;
+      padding: 0 7px;
+      color: $win-icon-color;
+      &:hover {
+        color: $win-icon-hover-color;
+      }
+    }
+    .window-controls-item-close {
+      width: 40px;
+      height: 26px;
+      padding: 0 7px;
+      color: $win-icon-color;
+      &:hover {
+        color: $win-close_icon-hover--color;
+      }
+    }
+  }
+}

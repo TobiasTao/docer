@@ -1,0 +1,20 @@
+<app-tabs tabWidth="100px">
+  <app-tab #tab1 [label]="tabLabel1">
+    Tab 1 custom label
+  </app-tab>
+  <app-tab #tab2 [label]="tabLabel2">
+    Tab 2 custom label
+  </app-tab>
+  <app-tab #tab3 [label]="tabLabel3">
+    Tab 3 custom label
+  </app-tab>
+</app-tabs>
+<ng-template #tabLabel1>
+  Tab 1
+</ng-template>
+<ng-template #tabLabel2>
+  Tab 2
+</ng-template>
+<ng-template #tabLabel3>
+  Tab 3
+</ng-template>

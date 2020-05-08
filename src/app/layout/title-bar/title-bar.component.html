@@ -1,0 +1,23 @@
+<div class="title-bar">
+  <div class="window-appicon">
+    <mat-icon class="win-icon" svgIcon="electron-angular"></mat-icon>
+  </div>
+  <div class="window-menu"></div>
+  <div class="window-title">
+    docer
+  </div>
+  <div class="window-controls">
+    <div class="window-controls-item" (click)="windowControl('min')">
+      <mat-icon class="win-icon" svgIcon="minimize"></mat-icon>
+    </div>
+    <div class="window-controls-item" *ngIf="!isFullscreen" (click)="windowControl('max')">
+      <mat-icon class="win-icon" svgIcon="fullscreen"></mat-icon>
+    </div>
+    <div class="window-controls-item" *ngIf="isFullscreen" (click)="windowControl('unmax')">
+      <mat-icon class="win-icon" svgIcon="fullscreen_exit"></mat-icon>
+    </div>
+    <div class="window-controls-item-close" (click)="windowControl('close')">
+      <mat-icon class="win-icon" svgIcon="close"></mat-icon>
+    </div>
+  </div>
+</div>

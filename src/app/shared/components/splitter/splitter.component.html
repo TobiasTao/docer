@@ -1,0 +1,13 @@
+<ng-content select="app-splitter-pane"></ng-content>
+<ng-container *ngFor="let pane of panes; let index = index; let last = last">
+  <app-splitter-bar
+    appResize
+    [style.order]="index * 2 + 1"
+    *ngIf="!last"
+    [index]="index"
+    [splitBarSize]="splitBarSize"
+    [disabledBarSize]="disabledBarSize"
+    [orientation]="orientation"
+  >
+  </app-splitter-bar>
+</ng-container>

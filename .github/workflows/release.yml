@@ -1,0 +1,128 @@
+name: Build/release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build_windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v1
+
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Build app on Windows
+        env:
+          GH_TOKEN: ${{ secrets.github_token }}
+        run: |
+          npm install
+          npm run electron:windows
+
+      - name: Package artifacts
+        run: |
+          mkdir artifact-setup
+          mv release/*-setup.exe* artifact-setup/
+
+      - uses: actions/upload-artifact@master
+        name: Upload installer
+        with:
+          name: Windows
+          path: artifact-setup
+
+
+  build_linux:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v1
+
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Build app on Linux
+        env:
+          GH_TOKEN: ${{ secrets.github_token }}
+        run: |
+          npm install
+          npm run electron:linux
+
+      - name: Package artifacts
+        run: |
+          mkdir artifact-linux
+          mv release/*.deb artifact-linux/
+
+      - uses: actions/upload-artifact@master
+        name: Upload linux artifacts
+        with:
+          name: Linux
+          path: artifact-linux
+
+
+  build_macos:
+    runs-on: macOS-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v1
+
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Build app on macOS
+        env:
+          GH_TOKEN: ${{ secrets.github_token }}
+        run: |
+          npm install
+          npm run electron:mac
+
+      - name: Package artifacts
+        run: |
+          mkdir artifact-macos
+          mv release/*.pkg artifact-macos/
+
+      - uses: actions/upload-artifact@master
+        name: Upload macos artifacts
+        with:
+          name: MacOS
+          path: artifact-macos
+
+
+  release_all:
+    runs-on: ubuntu-latest
+    needs: [build_windows, build_linux, build_macos]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: actions/download-artifact@v1
+        name: Download windows artifact
+        with:
+          name: Windows
+
+      - uses: actions/download-artifact@v1
+        with:
+          name: Linux
+
+      - uses: actions/download-artifact@v1
+        with:
+          name: MacOS
+
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "Linux/*,Windows/*,MacOS/*"
+          bodyFile: "WHATSNEW.md"
+          token: ${{ secrets.GITHUB_TOKEN }}
+

@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "types": ["node"],
+    "lib": ["es2017", "es2016", "es2015", "dom"],
+    "baseUrl": "./",
+    "paths": {
+      "@icons/*": ["assets/icons/*"]
+    }
+  },
+  "include": ["src/electron/main/main.ts"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}
