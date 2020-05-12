@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { TranslateModule } from '@ngx-translate/core';
 
-import { PageNotFoundComponent } from './components/';
-import { SplitterModule } from './components/splitter/splitter.module';
-import { TabsModule } from './components/tabs/tabs.module';
-import { WebviewDirective } from './directives/';
+import { PageNotFoundComponent, SplitterModule } from './components';
+import { appTabsModule } from './components/tabs';
+
+import { WebviewDirective } from './directives';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -25,7 +25,7 @@ const DIRECTIVES = [WebviewDirective];
     ...COMPONENTS,
     ...DIRECTIVES,
     SplitterModule,
-    TabsModule,
+    appTabsModule,
   ],
 })
 export class SharedModule {}
