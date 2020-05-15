@@ -9,7 +9,7 @@ import { IconService } from './core/services/icon-service/icon.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(private translate: TranslateService, private iconService: IconService) {
+  constructor(private translate: TranslateService, public iconService: IconService) {
     translate.setDefaultLang('en');
     console.log('AppConfig', AppConfig);
 

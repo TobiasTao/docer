@@ -5,10 +5,11 @@ import { TitleBarComponent } from './title-bar/title-bar.component';
 import { SharedModule } from '../shared/shared.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ContentComponent } from './content/content.component';
+import { SideListComponent } from './sidebar/side-list/side-list.component';
 
 @NgModule({
-  declarations: [TitleBarComponent, SidebarComponent, ContentComponent],
+  declarations: [TitleBarComponent, SidebarComponent, ContentComponent, SideListComponent],
   imports: [CommonModule, MaterialModule, SharedModule],
-  exports: [TitleBarComponent, ContentComponent],
+  exports: [TitleBarComponent, ContentComponent, SidebarComponent],
 })
 export class LayoutModule {}

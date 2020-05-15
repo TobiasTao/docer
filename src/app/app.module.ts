@@ -1,4 +1,4 @@
-import { AppLayoutComponent } from './layout/layout.component';
+import { AppLayoutComponent } from './layout';
 import { LayoutModule } from './layout/layout.module';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';

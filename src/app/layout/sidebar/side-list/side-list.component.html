@@ -1,0 +1,37 @@
+<div *ngFor="let category of accordions; let last = last">
+  <button
+    cdkAccordionItem
+    #panel="cdkAccordionItem"
+    (click)="panel.toggle()"
+    expanded="true"
+    class="docs-nav-content-btn"
+    [attr.aria-controls]="'panel-' + category.id"
+    [attr.aria-expanded]="panel.expanded"
+  >
+    <div class="accordion-item-wrapper">
+      <div class="accordion-item-label">
+        {{ category.title }}
+      </div>
+      <mat-icon [svgIcon]="panel.expanded ? 'keyboard_arrow_down' : 'keyboard_arrow_right'"></mat-icon>
+    </div>
+  </button>
+  <mat-list
+    dense
+    [@bodyExpansion]="panel.expanded ? 'expanded' : 'collapsed'"
+    id="panel-{{ category.id }}"
+    [attr.aria-label]="category.title"
+  >
+    <div *ngIf="nonChild(category)">
+      <mat-list-item
+        *ngFor="let component of category.items"
+        [attr.aria-current]="currentItemId === component.id ? 'page' : 'false'"
+      >
+        <div class="accordion-item-label">{{ component }}</div>
+      </mat-list-item>
+    </div>
+    <div *ngIf="!nonChild(category)">
+      <app-side-list [accordions]="category.children"></app-side-list>
+    </div>
+  </mat-list>
+  <hr *ngIf="!last" />
+</div>

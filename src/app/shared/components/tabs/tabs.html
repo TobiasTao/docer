@@ -1,7 +1,15 @@
 <div class="app-tabs-header-wrapper">
-  <div class="app-tabs-canvas"role="tablist" tabindex="0"  (mousewheel)="scroll($event)">
+  <div class="app-tabs-canvas" role="tablist" tabindex="0" (mousewheel)="scroll($event)">
     <div class="app-tabs-header" [style.marginLeft.px]="-_offsetLeft">
-      <div class="app-tab-label" role="tab" *ngFor="let tab of tabs; let i = index" [class.focus]="focusIndex === i" [class.active]="selectedIndex === i" [class.disabled]="tab.disabled" (click)="focusIndex = selectedIndex = i">
+      <div
+        class="app-tab-label"
+        role="tab"
+        *ngFor="let tab of tabs; let i = index"
+        [class.focus]="focusIndex === i"
+        [class.active]="selectedIndex === i"
+        [class.disabled]="tab.disabled"
+        (click)="focusIndex = selectedIndex = i"
+      >
         <span [appTransclude]="tab.labelRef">{{tab.label}}</span>
       </div>
       <div class="app-tab-ink-bar" [style.left]="_inkBarLeft" [style.width]="_inkBarWidth"></div>

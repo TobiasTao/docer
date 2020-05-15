@@ -1,0 +1,104 @@
+.docs-component-viewer-sidenav-container {
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.docs-component-viewer-sidenav {
+  overflow: auto;
+}
+
+.docs-component-sidenav-inner-content {
+  display: flex;
+  flex-direction: row;
+
+  router-outlet + * {
+    flex-grow: 1;
+  }
+}
+
+ng-scrollbar {
+  --scrollbar-size: 7px;
+  --scrollbar-thumb-color: rgba(111, 111, 111, 0.5);
+  --scrollbar-track-color: rgba(0, 0, 0, 0.1);
+  --scrollbar-border-radius: 10px;
+  --scrollbar-hover-size: 9px;
+  --scrollbar-padding: 4px;
+}
+
+button {
+  padding: 8px 8px;
+  font-weight: 700;
+  line-height: 16px;
+  margin: 0;
+  font-size: 13px;
+  cursor: pointer;
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &:focus {
+    outline: none;
+  }
+  .accordion-item-wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    .mat-icon {
+      position: absolute;
+      right: 5px;
+      top: 4px;
+      font-size: 18px;
+    }
+  }
+
+}
+
+hr {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+.accordion-item-label {
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: calc(100% - 24px);
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: normal;
+}
+
+.mat-list-base {
+  padding: 0 !important;
+  .mat-list-item {
+    height: 32px !important;
+  }
+}
+
+.docs-component-sidenav-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.docs-component-sidenav-inner-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.docs-component-sidenav-body-content {
+  display: flex;
+  flex: 1 1 auto;
+}

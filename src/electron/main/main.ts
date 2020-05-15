@@ -63,7 +63,7 @@ app.on('ready', () => {
   createWindow();
   if (serve) {
     // install devtron: This API cannot be called before the ready event of the app module is emitted.
-    require('devtron').install();
+    // require('devtron').install();
 
     win.webContents.openDevTools();
   }

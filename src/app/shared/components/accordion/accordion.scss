@@ -1,0 +1,79 @@
+$primary: #106cc8 !default;
+
+app-accordion {
+  display: block;
+}
+
+app-accordion-tab {
+  position: relative;
+  display: block;
+  outline: 0;
+  box-sizing: border-box;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.app-accordion-header {
+  position: relative;
+  display: block;
+  padding: 0 30px 0 10px;
+  line-height: 36px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  color: rgba(black, 0.87);
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 1px solid rgba(black, 0.12);
+  border-radius: 0;
+  box-sizing: border-box;
+  user-select: none;
+
+  app-accordion-tab.app-accordion-tab-active > & {
+    box-shadow: inset 5px 0 $primary;
+    //box-shadow:  5px 0 0 $primary;
+  }
+
+  app-accordion-tab.app-accordion-tab-disabled > & {
+    pointer-events: none;
+    color: rgba(black, 0.26);
+    background-image: linear-gradient(to right, rgba(black, 0.26) 0, rgba(black, 0.26) 33%, transparent 0);
+    background-size: 4px 1px;
+    background-repeat: repeat-x;
+    background-position: 0 bottom;
+    border-color: transparent;
+    box-shadow: none;
+    cursor: default;
+  }
+}
+
+.app-accordion-header-icon {
+  position: absolute;
+  top: 12px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  overflow: hidden;
+  display: inline-block;
+  border-width: 0 2px 2px 0;
+  border-style: solid;
+  border-color: currentColor;
+  opacity: 0.64;
+  transform: rotate(-45deg);
+  transition: 300ms ease-in-out;
+
+  app-accordion-tab.app-accordion-tab-active > .app-accordion-header > & {
+    transform: rotate(45deg);
+    top: 12px;
+  }
+}
+
+.app-accordion-tab-body {
+  position: relative;
+  overflow: hidden;
+  app-accordion-tab.app-accordion-tab-active & {
+    overflow: visible;
+  }
+}

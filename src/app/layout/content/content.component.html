@@ -1,11 +1,11 @@
 <app-tabs selectedIndex="0">
-   <app-tab *ngFor="let tab of tabItems">
-      <ng-template app-tab-label>
-         <div style="display: flex; justify-content: space-around">
-            {{tab.title}}
-            <mat-icon class="icon-close" svgIcon="close"></mat-icon>
-         </div>
-      </ng-template>
-      {{tab.content}}
-   </app-tab>
+  <app-tab *ngFor="let tab of tabItems">
+    <ng-template app-tab-label>
+      <div style="display: flex; justify-content: space-around;">
+        {{ tab.title }}
+        <mat-icon class="icon-close" svgIcon="close"></mat-icon>
+      </div>
+    </ng-template>
+    {{ tab.content }}
+  </app-tab>
 </app-tabs>
