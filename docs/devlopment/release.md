@@ -8,11 +8,11 @@
  git tag v*.*.*  
  git push --tags
  ```
-- github actions works now!。
+- github actions works now!
 - If you need to delete a tag:
-    ```shell script
-    // delete local tag
-    git tag -d v*.*.*
-    // delete remote tag
-    it push --delete origin v*.*.*
-    ```
+```shell script
+// delete local tag
+git tag -d v*.*.*
+// delete remote tag
+it push --delete origin v*.*.*
+```
