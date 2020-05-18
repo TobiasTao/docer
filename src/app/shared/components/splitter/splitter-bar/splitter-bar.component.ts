@@ -103,6 +103,14 @@ export class SplitterBarComponent implements OnInit, AfterViewInit, OnDestroy {
         this.splitter.setSize(state, distance);
       });
     this.subscriptions.add(resizeListener);
+
+    this.splitter.sidebarOpen.subscribe((isOpen) => {
+      if (isOpen) {
+        this.collapseNextPane();
+      } else {
+        this.collapsePrePane();
+      }
+    });
   }
 
   ngAfterViewInit(): void {

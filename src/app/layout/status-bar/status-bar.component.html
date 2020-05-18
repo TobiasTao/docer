@@ -1,0 +1,8 @@
+<div class="status-items">
+  <div *ngIf="!sidebarOpen" class="status-item">
+    <mat-icon svgIcon="sidebar-open" (click)="sidebarToggle(ture)"></mat-icon>
+  </div>
+  <div *ngIf="sidebarOpen" class="status-item">
+    <mat-icon svgIcon="sidebar-close" (click)="sidebarToggle(false)"></mat-icon>
+  </div>
+</div>

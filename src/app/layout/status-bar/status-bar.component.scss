@@ -1,0 +1,15 @@
+@import 'variables';
+
+.status-items {
+  height: 26px;
+  width: 100%;
+  background-color: $bg-color1;
+  display: flex;
+  &:hover .status-item {
+    visibility: visible;
+  }
+  .status-item {
+    padding: 1px;
+    visibility: hidden;
+  }
+}

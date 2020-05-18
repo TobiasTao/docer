@@ -6,10 +6,11 @@ import { SharedModule } from '../shared/shared.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ContentComponent } from './content/content.component';
 import { SideListComponent } from './sidebar/side-list/side-list.component';
+import { StatusBarComponent } from './status-bar/status-bar.component';
 
 @NgModule({
-  declarations: [TitleBarComponent, SidebarComponent, ContentComponent, SideListComponent],
+  declarations: [TitleBarComponent, SidebarComponent, ContentComponent, SideListComponent, StatusBarComponent],
   imports: [CommonModule, MaterialModule, SharedModule],
-  exports: [TitleBarComponent, ContentComponent, SidebarComponent],
+  exports: [TitleBarComponent, ContentComponent, SidebarComponent, StatusBarComponent],
 })
 export class LayoutModule {}

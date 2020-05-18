@@ -1,9 +1,12 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Subject } from 'rxjs';
 import { SplitterPaneComponent } from './splitter-pane/splitter-pane.component';
 
 @Injectable()
 export class SplitterService {
+  isOpen: boolean = true;
+  @Output() sidebarOpen: EventEmitter<boolean> = new EventEmitter();
+
   panes: Array<SplitterPaneComponent>;
   private containerSize: Function;
   paneCount = 0;
@@ -127,5 +130,9 @@ export class SplitterService {
       nearPane.toggleNearPaneFlexGrow();
       pane.collapsedChange.emit(pane.collapsed);
     }
+  }
+
+  toggle(arg: boolean) {
+    this.sidebarOpen.emit(arg);
   }
 }

@@ -7,7 +7,7 @@ import { ElectronService } from '../core/services';
   styleUrls: ['./layout.component.scss'],
 })
 export class AppLayoutComponent implements OnInit {
-  isWin32;
+  isWin32: string;
 
   // splitter input
   orientation = 'horizontal';
