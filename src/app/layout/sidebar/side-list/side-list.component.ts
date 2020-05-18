@@ -20,6 +20,11 @@ export type AccordionList = {
       state('expanded', style({ height: '*', display: 'block' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4,0.0,0.2,1)')),
     ]),
+    trigger('iconExpansion', [
+      state('collapsed', style({})),
+      state('expanded', style({ transform: 'rotate(90deg)' })),
+      transition('expanded <=> collapsed', animate('225ms')),
+    ]),
   ],
 })
 export class SideListComponent implements OnInit, OnDestroy {

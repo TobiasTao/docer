@@ -27,10 +27,7 @@ ng-scrollbar {
 
 button {
   padding: 8px 8px;
-  font-weight: 700;
-  line-height: 16px;
   margin: 0;
-  font-size: 13px;
   cursor: pointer;
   position: relative;
   display: block;
@@ -48,11 +45,24 @@ button {
     display: flex;
     justify-content: space-between;
 
+
+    .accordion-item-label {
+      text-align: left;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      width: calc(100% - 24px);
+      font-size: 14px;
+      line-height: 14px;
+      font-weight: normal;
+    }
+
     .mat-icon {
       position: absolute;
       right: 5px;
       top: 4px;
-      font-size: 18px;
+      line-height: 14px;
+      font-size: 14px;
     }
   }
 }
@@ -62,26 +72,26 @@ hr {
   margin: 0;
 }
 
-a {
-  display: block;
-  text-decoration: none;
+mat-list-item{
+  height: 30px;
+  .accordion-item-label {
+    text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: normal;
+  }
 }
 
-.accordion-item-label {
-  text-align: left;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  width: calc(100% - 24px);
-  font-size: 14px;
-  line-height: 14px;
-  font-weight: normal;
-}
+
 
 .mat-list-base {
   padding: 0 !important;
   .mat-list-item {
-    height: 32px !important;
+    height: 30px !important;
   }
 }
 

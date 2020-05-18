@@ -12,7 +12,7 @@
       <div class="accordion-item-label">
         {{ category.title }}
       </div>
-      <mat-icon [svgIcon]="panel.expanded ? 'keyboard_arrow_down' : 'keyboard_arrow_right'"></mat-icon>
+      <mat-icon [@iconExpansion]="panel.expanded ? 'expanded' : 'collapsed'" svgIcon="keyboard_arrow_right"></mat-icon>
     </div>
   </button>
   <mat-list
