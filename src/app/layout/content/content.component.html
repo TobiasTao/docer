@@ -1,4 +1,4 @@
-<app-tabs selectedIndex="0">
+<app-tabs selectedIndex="0" tabsWidth="calc(100% - 30px)">
   <app-tab *ngFor="let tab of tabItems">
     <ng-template app-tab-label>
       <div style="display: flex; justify-content: space-around;">
@@ -8,4 +8,9 @@
     </ng-template>
     {{ tab.content }}
   </app-tab>
+  <ng-template app-tab-append>
+    <div class="tabs-append">
+      <mat-icon svgIcon="settings"></mat-icon>
+    </div>
+  </ng-template>
 </app-tabs>

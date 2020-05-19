@@ -45,7 +45,6 @@ button {
     display: flex;
     justify-content: space-between;
 
-
     .accordion-item-label {
       text-align: left;
       text-overflow: ellipsis;
@@ -72,7 +71,7 @@ hr {
   margin: 0;
 }
 
-mat-list-item{
+mat-list-item {
   height: 30px;
   .accordion-item-label {
     text-align: left;
@@ -85,8 +84,6 @@ mat-list-item{
     font-weight: normal;
   }
 }
-
-
 
 .mat-list-base {
   padding: 0 !important;

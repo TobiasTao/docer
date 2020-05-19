@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 const MaterialModules = [
   MatIconModule,
@@ -15,6 +16,7 @@ const MaterialModules = [
   CdkAccordionModule,
   MatListModule,
   MatRippleModule,
+  MatTooltipModule,
 ];
 
 @NgModule({

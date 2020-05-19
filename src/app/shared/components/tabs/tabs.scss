@@ -29,60 +29,60 @@ app-tabs {
     overflow: hidden;
     display: block;
     outline: none;
-  }
 
-  .app-tabs-header {
-    position: relative;
-    display: inline-block;
-    height: 100%;
-    white-space: nowrap;
-    .app-tab-label {
-      z-index: 1;
+    .app-tabs-header {
       position: relative;
-      height: 100%;
-      color: $font-normal-color;
-      background-color: transparent;
-      font-size: 14px;
-      text-align: center;
-      line-height: 22px;
-      padding: 4px;
-      cursor: pointer;
-      white-space: nowrap;
       display: inline-block;
-      font-weight: 500;
-      box-sizing: border-box;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.5);
+      height: 100%;
+      white-space: nowrap;
+      .app-tab-label {
+        z-index: 1;
+        position: relative;
+        height: 100%;
+        color: $font-normal-color;
+        background-color: transparent;
+        font-size: 14px;
+        text-align: center;
+        line-height: 22px;
+        padding: 4px;
+        cursor: pointer;
+        white-space: nowrap;
+        display: inline-block;
+        font-weight: 500;
+        box-sizing: border-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.5);
+          .icon-close {
+            visibility: visible;
+          }
+        }
+
+        &.disabled {
+          color: rgba(0, 0, 0, 0.26);
+          pointer-events: none;
+          user-select: none;
+          -webkit-user-drag: none;
+          opacity: 0.5;
+          cursor: default;
+        }
+
         .icon-close {
-          visibility: visible;
+          visibility: hidden;
+          opacity: 0.75;
+          height: 20px;
         }
       }
 
-      &.disabled {
-        color: rgba(0, 0, 0, 0.26);
-        pointer-events: none;
-        user-select: none;
-        -webkit-user-drag: none;
-        opacity: 0.5;
-        cursor: default;
+      .app-tab-ink-bar {
+        z-index: 0;
+        position: absolute;
+        bottom: 0;
+        height: 30px;
+        background: white;
+        transition: 250ms cubic-bezier(0.35, 0, 0.25, 1);
       }
-
-      .icon-close {
-        visibility: hidden;
-        opacity: 0.75;
-        height: 20px;
-      }
-    }
-
-    .app-tab-ink-bar {
-      z-index: 0;
-      position: absolute;
-      bottom: 0;
-      height: 30px;
-      background: white;
-      transition: 250ms cubic-bezier(0.35, 0, 0.25, 1);
     }
   }
 }

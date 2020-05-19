@@ -1,5 +1,5 @@
 <div class="app-tabs-header-wrapper">
-  <div class="app-tabs-canvas" role="tablist" tabindex="0" (mousewheel)="scroll($event)">
+  <div class="app-tabs-canvas" [style.width]="tabsWidth" role="tablist" tabindex="0" (mousewheel)="scroll($event)">
     <div class="app-tabs-header" [style.marginLeft.px]="-_offsetLeft">
       <div
         class="app-tab-label"
@@ -15,6 +15,7 @@
       <div class="app-tab-ink-bar" [style.left]="_inkBarLeft" [style.width]="_inkBarWidth"></div>
     </div>
   </div>
+  <ng-container [ngTemplateOutlet]="tabsAppend.templateRef"></ng-container>
 </div>
 <div class="app-tabs-body-wrapper">
   <ng-content></ng-content>

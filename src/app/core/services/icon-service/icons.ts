@@ -8,6 +8,7 @@ const icons: string[] = [
   'keyboard_arrow_right',
   'sidebar-close',
   'sidebar-open',
+  'settings',
 ];
 
 export { icons };

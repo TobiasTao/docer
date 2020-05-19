@@ -12,6 +12,7 @@ import {
   ViewContainerRef,
   ViewEncapsulation,
   NgModule,
+  ContentChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -65,6 +66,11 @@ export class appTabLabel {
   }
 }
 
+@Directive({ selector: '[app-tab-append]' })
+export class appTabAppend {
+  constructor(public templateRef: TemplateRef<any>) {}
+}
+
 @Component({
   selector: 'app-tabs',
   templateUrl: 'tabs.html',
@@ -78,6 +84,8 @@ export class appTabLabel {
 export class appTabs implements AfterContentInit {
   @ContentChildren(appTab) tabs: QueryList<appTab>;
 
+  @ContentChild(appTabAppend) tabsAppend: appTabAppend;
+
   private _isInitialized: boolean = false;
   private _focusIndex: number = 0;
   private _selectedIndex: number = 0;
@@ -86,6 +94,8 @@ export class appTabs implements AfterContentInit {
   _inkBarWidth: string = '0';
 
   @Input() class: string;
+
+  @Input() tabsWidth: string;
 
   @Input()
   get selectedIndex() {
@@ -289,7 +299,7 @@ export const app_TABS_DIRECTIVES: any[] = [appTabLabel, appTabs, appTab];
 
 @NgModule({
   imports: [CommonModule],
-  exports: app_TABS_DIRECTIVES,
-  declarations: [appTransclude, appTabLabel, appTabs, appTab],
+  exports: [app_TABS_DIRECTIVES, appTabAppend],
+  declarations: [appTransclude, appTabLabel, appTabs, appTab, appTabAppend],
 })
 export class appTabsModule {}
