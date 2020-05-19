@@ -42,7 +42,10 @@
     }
   },
   "lint-staged": {
-    "*.{ts,js,html,css,json,md}": "prettier --write"
+    "*.{ts,js,html,css,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "^9.0.0",
