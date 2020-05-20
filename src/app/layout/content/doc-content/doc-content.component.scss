@@ -1,0 +1,24 @@
+@import 'variables';
+
+.doc-container {
+  height: calc(100vh - 82px);
+  width: 100%;
+
+  .doc-toc-container {
+    z-index: 0 !important;
+    width: 200px;
+    height: 100%;
+    border: none !important;
+  }
+  .doc-content-container {
+    height: 100%;
+    background-color: $bg-color0;
+    .doc-toc-btn {
+      z-index: 5;
+      background-color: $bg-color2;
+      position: fixed;
+      right: 10px;
+      bottom: 36px;
+    }
+  }
+}

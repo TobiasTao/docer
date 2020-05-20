@@ -31,7 +31,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     BrowserModule,
     BrowserAnimationsModule,
     CoreModule,
-    SharedModule,
     AppRoutingModule,
     FlexLayoutModule,
     TranslateModule.forRoot({
@@ -42,6 +41,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
       },
     }),
     LayoutModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

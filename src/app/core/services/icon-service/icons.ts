@@ -9,6 +9,7 @@ const icons: string[] = [
   'sidebar-close',
   'sidebar-open',
   'settings',
+  'list',
 ];
 
 export { icons };

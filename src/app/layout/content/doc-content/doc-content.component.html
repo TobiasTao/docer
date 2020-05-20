@@ -1,0 +1,12 @@
+<mat-sidenav-container class="doc-container">
+  <mat-sidenav #sidenav mode="side" position="end" class="doc-toc-container">
+    sidenav content
+  </mat-sidenav>
+
+  <mat-sidenav-content class="doc-content-container">
+    {{ docText }}sidenav contentsidenav contentsidenav content
+    <button class="doc-toc-btn" mat-mini-fab (click)="sidenav.toggle()">
+      <mat-icon svgIcon="list"></mat-icon>
+    </button>
+  </mat-sidenav-content>
+</mat-sidenav-container>

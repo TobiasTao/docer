@@ -7,9 +7,17 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ContentComponent } from './content/content.component';
 import { SideListComponent } from './sidebar/side-list/side-list.component';
 import { StatusBarComponent } from './status-bar/status-bar.component';
+import { DocContentComponent } from './content/doc-content/doc-content.component';
 
 @NgModule({
-  declarations: [TitleBarComponent, SidebarComponent, ContentComponent, SideListComponent, StatusBarComponent],
+  declarations: [
+    TitleBarComponent,
+    SidebarComponent,
+    ContentComponent,
+    SideListComponent,
+    StatusBarComponent,
+    DocContentComponent,
+  ],
   imports: [CommonModule, MaterialModule, SharedModule],
   exports: [TitleBarComponent, ContentComponent, SidebarComponent, StatusBarComponent],
 })
