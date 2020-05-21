@@ -13,6 +13,14 @@
   .doc-content-container {
     height: 100%;
     background-color: $bg-color0;
+
+    .md-container {
+      padding: 1em;
+
+      a {
+        color: rgba(0, 162, 255, 0.678);
+      }
+    }
     .doc-toc-btn {
       z-index: 5;
       background-color: $bg-color2;
@@ -21,4 +29,13 @@
       bottom: 36px;
     }
   }
+}
+
+ng-scrollbar {
+  --scrollbar-size: 7px;
+  --scrollbar-thumb-color: rgba(111, 111, 111, 0.5);
+  --scrollbar-track-color: rgba(0, 0, 0, 0.1);
+  --scrollbar-border-radius: 10px;
+  --scrollbar-hover-size: 9px;
+  --scrollbar-padding: 4px;
 }

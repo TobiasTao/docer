@@ -1,8 +1,11 @@
-import { app, BrowserWindow, screen, ipcMain } from 'electron';
+import { async } from '@angular/core/testing';
+import { app, BrowserWindow, screen, ipcMain, webContents } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
+import * as fs from 'fs';
 
 let win: BrowserWindow = null;
+let contents: webContents = null;
 const args = process.argv.slice(1),
   serve: boolean = args.some((val) => val === '--serve');
 
@@ -22,6 +25,8 @@ function createWindow(): BrowserWindow {
       allowRunningInsecureContent: serve,
     },
   });
+
+  contents = win.webContents;
 
   if (serve) {
     require('electron-reload')(__dirname, {
@@ -47,10 +52,10 @@ function createWindow(): BrowserWindow {
   });
 
   win.on('maximize', () => {
-    win.webContents.send('isMax', true);
+    contents.send('isMax', true);
   });
   win.on('unmaximize', () => {
-    win.webContents.send('isMax', false);
+    contents.send('isMax', false);
   });
 
   return win;
@@ -64,7 +69,6 @@ app.on('ready', () => {
   if (serve) {
     // install devtron: This API cannot be called before the ready event of the app module is emitted.
     // require('devtron').install();
-
     win.webContents.openDevTools();
   }
 });
@@ -108,4 +112,14 @@ ipcMain.handle('helpers', async (event, arg) => {
     case 'platform':
       return process.platform;
   }
+});
+
+ipcMain.handle('getDoc', async (event, arg) => {
+  const mdPath = path.join(app.getPath('userData'), arg);
+  const res = await new Promise((resolve, reject) => {
+    fs.readFile(mdPath, 'utf8', (err, res) => {
+      err ? reject(err) : resolve(res);
+    });
+  });
+  return res;
 });

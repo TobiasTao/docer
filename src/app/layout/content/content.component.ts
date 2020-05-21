@@ -13,17 +13,7 @@ export class ContentComponent implements OnInit {
     {
       id: 'tab1',
       title: 'Tab1',
-      content: `这是Tab1的内容`,
-    },
-    {
-      id: 'tab2',
-      title: 'Tab2',
-      content: `这是Tab2的内容`,
-    },
-    {
-      id: 'tab3',
-      title: 'Tab3',
-      content: `这是Tab3的内容`,
+      contentPath: '/docs/electron/README.md',
     },
   ];
   constructor() {}

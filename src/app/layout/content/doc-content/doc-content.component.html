@@ -4,7 +4,9 @@
   </mat-sidenav>
 
   <mat-sidenav-content class="doc-content-container">
-    {{ docText }}sidenav contentsidenav contentsidenav content
+    <ng-scrollbar visibility="hover">
+      <div class="md-container" [innerHTML]="docMD"></div>
+    </ng-scrollbar>
     <button class="doc-toc-btn" mat-mini-fab (click)="sidenav.toggle()">
       <mat-icon svgIcon="list"></mat-icon>
     </button>
