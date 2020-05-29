@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ElectronService } from '../../core/services';
-import { from } from 'rxjs';
 
 @Component({
   selector: 'title-bar',
@@ -8,14 +7,13 @@ import { from } from 'rxjs';
   styleUrls: ['./title-bar.component.scss'],
 })
 export class TitleBarComponent implements OnInit {
+  isWin32: string;
+
   constructor(private electronService: ElectronService) {}
 
   isFullscreen: boolean;
 
   ngOnInit(): void {
-    // this.electronService.isFullscreen().subscribe((ans) => {
-    //   this.isFullscreen = ans;
-    // });
     this.electronService.ipcRenderer.on('isMax', (event, ans) => {
       this.isFullscreen = ans;
     });
@@ -24,5 +22,8 @@ export class TitleBarComponent implements OnInit {
   windowControl(arg: string): void {
     this.electronService.ipcRenderer.invoke('window-controls', arg);
     this.isFullscreen = arg == 'max';
+    this.electronService.platform().subscribe((platform) => {
+      this.isWin32 = platform;
+    });
   }
 }

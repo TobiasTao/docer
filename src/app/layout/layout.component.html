@@ -1,10 +1,10 @@
-<div style="display: flex; flex-direction: column;">
-  <title-bar *ngIf="isWin32"></title-bar>
-  <app-splitter orientation="horizontal" splitBarSize="2px" style="height: calc(100vh - 26px); width: 100vw;">
+<div class="app-layout" style="display: flex; flex-direction: column;">
+  <app-splitter orientation="horizontal" splitBarSize="2px" style="height: 100vh; width: 100vw;">
     <app-splitter-pane [size]="size" [minSize]="minSize" [maxSize]="maxSize" [collapsible]="true" class="right-pane">
       <app-sidebar></app-sidebar>
     </app-splitter-pane>
     <app-splitter-pane>
+      <title-bar></title-bar>
       <app-content></app-content>
       <app-status-bar></app-status-bar>
     </app-splitter-pane>

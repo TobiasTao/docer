@@ -66,10 +66,10 @@ export class appTabLabel {
   }
 }
 
-@Directive({ selector: '[app-tab-append]' })
-export class appTabAppend {
-  constructor(public templateRef: TemplateRef<any>) {}
-}
+// @Directive({ selector: '[app-tab-append]' })
+// export class appTabAppend {
+//   constructor(public templateRef: TemplateRef<any>) {}
+// }
 
 @Component({
   selector: 'app-tabs',
@@ -84,7 +84,7 @@ export class appTabAppend {
 export class appTabs implements AfterContentInit {
   @ContentChildren(appTab) tabs: QueryList<appTab>;
 
-  @ContentChild(appTabAppend) tabsAppend: appTabAppend;
+  // @ContentChild(appTabAppend) tabsAppend: appTabAppend;
 
   private _isInitialized: boolean = false;
   private _focusIndex: number = 0;
@@ -299,7 +299,7 @@ export const app_TABS_DIRECTIVES: any[] = [appTabLabel, appTabs, appTab];
 
 @NgModule({
   imports: [CommonModule],
-  exports: [app_TABS_DIRECTIVES, appTabAppend],
-  declarations: [appTransclude, appTabLabel, appTabs, appTab, appTabAppend],
+  exports: [app_TABS_DIRECTIVES],
+  declarations: [appTransclude, appTabLabel, appTabs, appTab],
 })
 export class appTabsModule {}

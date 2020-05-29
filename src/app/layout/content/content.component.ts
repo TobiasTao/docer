@@ -1,5 +1,4 @@
 import { Component, ContentChild, OnInit, TemplateRef } from '@angular/core';
-import { appTabAppend } from '../../shared/components/tabs';
 
 @Component({
   selector: 'app-content',
@@ -7,7 +6,6 @@ import { appTabAppend } from '../../shared/components/tabs';
   styleUrls: ['./content.component.scss'],
 })
 export class ContentComponent implements OnInit {
-  @ContentChild(appTabAppend) tabAppendTpl: TemplateRef<any>;
   tabActiveId = 'tab2';
   tabItems = [
     {

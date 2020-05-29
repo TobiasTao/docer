@@ -7,8 +7,6 @@ import { ElectronService } from '../core/services';
   styleUrls: ['./layout.component.scss'],
 })
 export class AppLayoutComponent implements OnInit {
-  isWin32: string;
-
   // splitter input
   orientation = 'horizontal';
   splitBarSize = '2px';
@@ -20,9 +18,5 @@ export class AppLayoutComponent implements OnInit {
 
   constructor(private electronService: ElectronService) {}
 
-  ngOnInit(): void {
-    this.electronService.platform().subscribe((platform) => {
-      this.isWin32 = platform;
-    });
-  }
+  ngOnInit(): void {}
 }

@@ -19,6 +19,7 @@ function createWindow(): BrowserWindow {
     y: 0,
     width: size.width * 0.8,
     height: size.height * 0.8,
+    transparent: true,
     frame: false,
     webPreferences: {
       nodeIntegration: true,
