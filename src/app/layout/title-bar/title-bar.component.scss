@@ -6,19 +6,12 @@
   display: flex;
   flex-direction: row;
   background-color: $bg-color1;
-  .window-appicon {
-    height: 24px;
-    width: 24px;
-  }
-  .window-menu {
-    height: 26px;
-    width: 400px;
-  }
+
   .window-title {
     text-align: center;
     line-height: 26px;
     height: 26px;
-    width: calc(100vw - 350px);
+    width: calc(100vw - 120px);
     -webkit-user-select: none;
     -webkit-app-region: drag;
   }

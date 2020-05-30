@@ -8,6 +8,7 @@ import { ContentComponent } from './content/content.component';
 import { SideListComponent } from './sidebar/side-list/side-list.component';
 import { StatusBarComponent } from './status-bar/status-bar.component';
 import { DocContentComponent } from './content/doc-content/doc-content.component';
+import { ActivityBarComponent } from './activity-bar/activity-bar.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +18,9 @@ import { DocContentComponent } from './content/doc-content/doc-content.component
     SideListComponent,
     StatusBarComponent,
     DocContentComponent,
+    ActivityBarComponent,
   ],
   imports: [CommonModule, MaterialModule, SharedModule],
-  exports: [TitleBarComponent, ContentComponent, SidebarComponent, StatusBarComponent],
+  exports: [TitleBarComponent, ContentComponent, SidebarComponent, StatusBarComponent, ActivityBarComponent],
 })
 export class LayoutModule {}

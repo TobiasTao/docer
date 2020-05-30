@@ -1,5 +1,6 @@
-<div class="app-layout" style="display: flex; flex-direction: column;">
-  <app-splitter orientation="horizontal" splitBarSize="2px" style="height: 100vh; width: 100vw;">
+<div class="app-layout" style="display: flex;">
+  <app-activity-bar></app-activity-bar>
+  <app-splitter orientation="horizontal" splitBarSize="2px" style="height: 100vh; width: calc(100vw - 56px);">
     <app-splitter-pane [size]="size" [minSize]="minSize" [maxSize]="maxSize" [collapsible]="true" class="right-pane">
       <app-sidebar></app-sidebar>
     </app-splitter-pane>
