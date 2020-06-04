@@ -7,7 +7,7 @@ import { ElectronService } from '../../core/services';
   styleUrls: ['./title-bar.component.scss'],
 })
 export class TitleBarComponent implements OnInit {
-  isWin32: string;
+  isWin32: boolean;
 
   constructor(private electronService: ElectronService) {}
 
@@ -17,13 +17,13 @@ export class TitleBarComponent implements OnInit {
     this.electronService.ipcRenderer.on('isMax', (event, ans) => {
       this.isFullscreen = ans;
     });
+    this.electronService.platform().subscribe((platform) => {
+      this.isWin32 = platform === 'win32';
+    });
   }
 
   windowControl(arg: string): void {
     this.electronService.ipcRenderer.invoke('window-controls', arg);
     this.isFullscreen = arg == 'max';
-    this.electronService.platform().subscribe((platform) => {
-      this.isWin32 = platform;
-    });
   }
 }

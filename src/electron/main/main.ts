@@ -1,8 +1,10 @@
 import { async } from '@angular/core/testing';
-import { app, BrowserWindow, screen, ipcMain, webContents } from 'electron';
+import { app, BrowserWindow, screen, ipcMain, webContents, session } from 'electron';
+import installExtension from 'electron-devtools-installer';
 import * as path from 'path';
 import * as url from 'url';
 import * as fs from 'fs';
+import * as os from 'os';
 
 let win: BrowserWindow = null;
 let contents: webContents = null;
@@ -65,14 +67,29 @@ function createWindow(): BrowserWindow {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', () => {
+app.on('ready', async () => {
   createWindow();
   if (serve) {
-    // install devtron: This API cannot be called before the ready event of the app module is emitted.
-    // require('devtron').install();
+    const ext = await session.defaultSession.loadExtension(ANGULAR_STATE_INSPECTOR());
+    console.log('Added extension: ' + ext.name);
+
     win.webContents.openDevTools();
   }
 });
+
+function ANGULAR_STATE_INSPECTOR(): string {
+  let extensionPath = '';
+  if (os.platform() === 'win32') {
+    extensionPath = 'AppData/Local/Google/Chrome/User Data/Default/Extensions/nelkodgfpddgpdbcjinaaalphkfffbem/1.4.5_0';
+  } else if (os.platform() === 'darwin') {
+    extensionPath =
+      '/Library/Application Support/Google/Chrome/Default/Extensions/nelkodgfpddgpdbcjinaaalphkfffbem/1.4.5_0';
+  } else if (os.platform() === 'linux') {
+    extensionPath = '/.config/google-chrome/Default/Extensions/nelkodgfpddgpdbcjinaaalphkfffbem/1.4.5_0';
+  }
+  console.log(extensionPath);
+  return path.join(os.homedir(), extensionPath);
+}
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
@@ -111,7 +128,7 @@ ipcMain.handle('window-controls', async (event, arg) => {
 ipcMain.handle('helpers', async (event, arg) => {
   switch (arg) {
     case 'platform':
-      return process.platform;
+      return os.platform();
   }
 });
 

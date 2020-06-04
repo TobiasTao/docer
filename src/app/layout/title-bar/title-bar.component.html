@@ -1,8 +1,8 @@
 <div class="title-bar">
-  <div class="window-title">
+  <div class="window-title" [ngStyle]="{ width: isWin32 ? 'calc(100% - 120px)' : '100%' }">
     docer
   </div>
-  <div class="window-controls">
+  <div class="window-controls" *ngIf="isWin32">
     <div class="window-controls-item" (click)="windowControl('min')">
       <mat-icon class="win-icon" svgIcon="minimize"></mat-icon>
     </div>
